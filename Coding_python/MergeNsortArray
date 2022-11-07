@@ -1,0 +1,16 @@
+
+#write a function to merge two arrays in one sorted array
+
+def mergeSortedArray(list1,list2):
+  if isinstance(list2,list) and isinstance(list1,list):
+    for i in range(0,len(list1)-1):
+      list2.append(list1[i])
+    list2.sort()
+    return(list2)
+  else :
+    print("wrong input")
+
+
+a=[1,2,3,4,5]
+b=[8,10,22,25,29]
+mergeSortedArray(a,b)
