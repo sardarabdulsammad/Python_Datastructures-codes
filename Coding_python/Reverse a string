@@ -1,0 +1,12 @@
+intro_string = "ierdna si eman ym olleh"
+list1=list(intro_string)
+backword=[]
+def reverse(sen):
+  #string input validations
+  if isinstance(sen,str) and len(sen)>=1:
+    for i in range((len(sen)-1),0,-1):
+      backword.append(sen[i])
+      print(sen[i])
+
+reverse(intro_string)
+print(''.join(backword))
