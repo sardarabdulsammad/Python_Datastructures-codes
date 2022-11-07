@@ -1,0 +1,47 @@
+class Myarray:
+  def __init__(self):
+    self.length=0
+    self.data={}  
+  
+  def  data(self,index):
+    return self.data[index];
+
+  def push(self,item):
+    self.data[self.length]=item
+    self.length=self.length+1
+    return self.length
+
+  def pop(self):
+    del self.data[(self.length)]
+    self.length=self.length-1
+    return self.length
+    
+  def delete(self,index):
+    del self.data[index]
+    self.afterdel(index)
+    return index
+
+  def afterdel (self,index):
+    self.length=self.length-1  
+
+
+    
+newarr=Myarray()
+newarr.push("hi")
+newarr.push("how")
+newarr.push("are")
+newarr.push("you")
+newarr.push("?")
+newarr.push("how")
+newarr.push("is")
+newarr.push("life")
+newarr.push("going")
+print(newarr.data)
+print(newarr.length)
+newarr.delete(1)
+print(newarr.data)
+print(newarr.length)
+newarr.pop()
+newarr.pop()
+print(newarr.data)
+print(newarr.length)
