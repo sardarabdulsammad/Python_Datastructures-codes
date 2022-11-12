@@ -1,0 +1,37 @@
+class HashTable :
+  def __init__(self,size):
+    self.data=[None]*size
+
+  def ahash(self,key):
+    hash = 0
+    for i in range(0,len(key)):
+      hash= (hash+ord(key[i])*i) % len(self.data)
+    return hash
+
+  def set(self,key,value):
+    arr=[key,value]
+    address=self.ahash(key)
+    if not self.data[address]:
+      self.data[address]=[]
+    self.data[address].append(arr)
+    return self.data
+
+
+
+  def get(self,key):
+    address=self.ahash(key)
+    return self.data[address]
+
+  def keys(self):
+    newarr=[]
+    for i in range(0,len(self.data)):
+      if self.data[i]:
+        newarr.append(self.data[i][0][0])
+    return newarr
+  
+
+myhash=HashTable(50)
+myhash.set('graphes',1000)
+myhash.set('apples',12)
+print(myhash.keys())
+
