@@ -1,0 +1,57 @@
+class Node:
+  def __init__(self,value):
+    self.value=value
+    self.next=None
+
+class Linkedlist:
+  def __init__(self,value):
+    self.head={value : value,
+             next:None}
+    self.tail=self.head
+    self.length=1           
+
+
+  def app_end(self,value):
+    newnode={value : value,
+             next : None}
+    self.head.next=newnode
+    self.tail=newnode
+    self.length+=1
+
+  def show(self):
+    list1=[]
+    currentnode=self.head
+    while(currentnode!=None):
+      list1.append(currentnode.value)
+      currentnode=currentnode.next
+    return list1 
+
+  def insert(self,index,value):
+    newnode=Node(value)
+    if index>=self.length:
+      self.app_end(value)
+      return("Appended at end")
+    elif index<=0:
+      self.pre_pend(value)
+      return("Appended at beginning")
+    else:
+      previousnode=self.head
+      for i in range(0,index-1):
+        previousnode=previousnode.next
+      currentnode=previousnode.next
+      previousnode.next=newnode
+      newnode.next=currentnode
+      self.length+=1
+      return("done")
+        
+
+  def pre_pend(self,value):
+    newnode =Node(value)
+    newnode.next=self.head
+    self.head=newnode
+    self.length+=1
+
+
+linklist=Linkedlist(5)
+linklist.show()
+
