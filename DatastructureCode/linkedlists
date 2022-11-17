@@ -5,18 +5,23 @@ class Node:
 
 class Linkedlist:
   def __init__(self,value):
-    self.head={value : value,
-             next:None}
+    self.head=Node(value)
     self.tail=self.head
     self.length=1           
 
 
   def app_end(self,value):
-    newnode={value : value,
-             next : None}
-    self.head.next=newnode
+    newnode=Node(value)
+    self.tail.next=newnode
     self.tail=newnode
     self.length+=1
+
+  def pre_pend(self,value):
+    newnode =Node(value)
+    newnode.next=self.head
+    self.head=newnode
+    self.length+=1
+
 
   def show(self):
     list1=[]
@@ -44,14 +49,56 @@ class Linkedlist:
       self.length+=1
       return("done")
         
+  def remove(self,index):
+    if(index<0):
+      return("index out of range")
+    elif index==0:
+      head=self.head
+      newhead=head.next
+      self.head=newhead
+      self.length-=1
+    elif(index>self.length):
+      return("index out of range")
+    else:   
+     previousnode=self.head
+     for i in range(0,index-1):
+       previousnode=previousnode.next
+     node_to_del=previousnode.next
+     tobeattached=node_to_del.next
+     previousnode.next=tobeattached
+     self.length-=1
+     return("Done")
 
-  def pre_pend(self,value):
-    newnode =Node(value)
-    newnode.next=self.head
-    self.head=newnode
-    self.length+=1
 
 
+
+
+
+
+
+#initalizing
 linklist=Linkedlist(5)
+linklist.show()
+
+#appendingO(1)
+linklist.app_end(55)
+linklist.show()
+
+
+#prependingO(1)
+linklist.pre_pend(1)
+linklist.show()
+
+
+#insertingO(n)
+linklist.insert(2,3)
+linklist.show()
+
+
+
+#deletingO(n)
+linklist.remove(2)
+linklist.show()
+linklist.remove(0)
 linklist.show()
 
