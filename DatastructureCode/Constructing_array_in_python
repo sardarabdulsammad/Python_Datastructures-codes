@@ -24,7 +24,7 @@ class Myarray:
   def afterdel (self,index):
     self.length=self.length-1  
 
-
+#main
     
 newarr=Myarray()
 newarr.push("hi")
