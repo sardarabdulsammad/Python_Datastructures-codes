@@ -1,0 +1,53 @@
+class Node:
+  def __init__(self,value):
+    self.value=value
+    self.next=None
+class Stack:
+  def __init__(self):
+    self.top=None
+    self.bottom=None
+    self.length=0
+
+  def peek(self):
+    if(self.length==0):
+      return("Empty Stack")
+    else:
+      return(self.top.value)   
+
+  def push(self, value):
+    newnode=Node(value)
+    
+    if(self.bottom == None and self.top == None):
+      self.top=newnode
+      self.bottom = newnode
+      self.length+=1
+      return self
+    else :
+      previous=self.top
+      self.top=newnode
+      self.top.next=previous
+      self.length+=1
+      return self
+
+  def pop(self):
+    if(self.bottom==None):
+      return("empty stack")
+    elif(self.bottom == self.top ):
+      self.bottom==None  
+    else:
+      newtop=self.top.next
+      del self.top
+      self.top=newtop
+      self.length-=1
+      return(self)
+      
+
+newstack = Stack()
+print(newstack.top)
+newstack.push("Google")
+newstack.push("Udemy")
+print(newstack.top.value)
+print(newstack.length)
+print(newstack.bottom.value)
+print(newstack.pop())
+newstack.peek()
