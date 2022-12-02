@@ -1,0 +1,52 @@
+class Node :
+  def __init__(self, value):
+    self.left= None
+    self.right = None
+    self.value = value
+
+class Binary_search_tree :
+   def __init__(self):
+     self.root = None
+
+   def insert(self,value) :
+     newnode = Node(value)
+     if self.root == None:
+       self.root = newnode
+     else:
+       currentnode = self.root
+       while(True):
+         if value > currentnode.value:
+           if currentnode.right == None:
+             currentnode.right = newnode
+             print("appended on right")
+             return True
+           currentnode = currentnode.right
+         elif value < currentnode.value:
+           if currentnode.left == None:
+            currentnode.left = newnode
+            print("appended on left")
+            return True
+           currentnode = currentnode.left
+
+   def lookup(self,value) :
+     currentnode = self.root
+     while(True):
+       if value ==  currentnode.value:
+           return ("value found")
+       if value > currentnode.value:
+         if(currentnode.right == None):
+               return("This value is not in this tree")
+         currentnode=currentnode.right 
+
+       elif value < currentnode.value:
+         if(currentnode.left == None):
+               return("This value is not in this tree")
+         currentnode=currentnode.left       
+
+   def remove()
+
+tree=Binary_search_tree()
+tree.insert(20)
+tree.insert(30)
+tree.insert(10)
+tree.lookup(10)
