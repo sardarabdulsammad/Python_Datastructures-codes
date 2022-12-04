@@ -1,0 +1,27 @@
+class graph:
+  def __init__(self):
+    self.adjacency_list={}
+    self.numberOfnodes=0
+
+
+#adding a vertex
+  def addvertex(self,value):
+    if value in self.adjacency_list.keys():
+      return("Vertex already available")
+    self.adjacency_list[value]=[]
+    self.numberOfnodes+=1
+    return("value add")
+
+    
+#adding an edge
+  def addedge(self, node1,node2):
+    self.adjacency_list[node1].append(node2)
+    self.adjacency_list[node2].append(node1)
+
+
+g=graph()
+g.addvertex(2)
+g.addvertex(1)
+g.addedge(1,2)
+
+print(g.adjacency_list)
